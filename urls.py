@@ -1,10 +1,7 @@
-from django.urls import path
-from . import views
+from django.contrib import admin
+from django.urls import path,include
 
 urlpatterns = [
-    path('',views.posts,name='posts'),
-    path('singlepost/<str:pid>/',views.post,name='post'),
-    path('create-form',views.createNewPost,name='create'),
-    path('update-form/<str:pid>/',views.updatePost,name='update'),
-    path('delete/<str:pid>/',views.delete,name='delete'),
+    path('admin/', admin.site.urls),
+    path('',include('chat.urls')),
 ]
